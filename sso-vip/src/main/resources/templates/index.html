@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>VIP</title>
+</head>
+<body>
+    <h1>这里是VIP展示页面</h1>
+    <span>
+        <a th:if="${session.loginUser==null}" href="http://login.sso.com:9001/view/login?target=http://vip.sso.com:9002/view/index">登录</a>
+        <a th:unless="${session.loginUser==null}" href="http://vip.sso.com:9002/view/exit">退出</a>
+    </span>
+    <p th:unless="${session.loginUser==null}">
+        <span style="color: deepskyblue" th:text="${session.loginUser.username}"></span> 已登录
+    </p>
+</body>
+</html>
